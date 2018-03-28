@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>{{brand}}</title>
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+		{{!-- Load the Site styles - Bootstrap and custom ones --}}
+		<link href="/public/styles/build.boot.css?v={{version}}" rel="stylesheet">
+		<link href="/public/styles/build.site.css?v={{version}}" rel="stylesheet">
+		
+		{{!-- http://usrz.github.io/bootstrap-languages/ --}}
+		<link href="/public/styles/lib/languages.min.css" rel="stylesheet">
+
+		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+		//- Safely remove this block if you are not targeting IE8 --}}
+		<!--[if lt IE 9]>
+			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
+			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+        {{!-- This section allows templates to define custom CSS here --}}
+		{{{_sections.head_css}}}
+        {{!-- This section allows templates to define custom JS here --}}
+		{{{_sections.head_js}}}
+
+		<style>
+  			[v-cloak] {
+    			display: none;
+  			}
+		</style>
+
+		<script type="text/javascript">
+			function __loading(value) {
+				var loading = document.getElementById("loading")
+				if (loading) {
+					if (value === false) {
+						loading.parentElement.remove();
+					} else if (value === true) {
+						loading.style.width = "30%";
+					} else if (value instanceof Number || typeof value === "number") {
+						loading.style.width = value + "%";
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!-- Add a simple Bootstrap loading-progress - no need for any fancy plugins/libraries -->
+		<div class="progress" style="height: 3px; width: 100%; z-index: 100;">
+  			<div id="loading" class="progress-bar" role="progressbar"></div>
+		</div>
+		<script type="text/javascript">__loading(true);</script>
+
+		<div>
+
+			<div id="app-header" v-cloak>
+				<b-navbar toggleable="md" type="dark" variant="info">
+					<b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+					<b-navbar-brand href="/">{{brand}}</b-navbar-brand>
+
+					<b-collapse is-nav id="nav_collapse">
+						<b-navbar-nav>
+							{{#each navLinks}}
+								{{#unless isRight}}
+									<b-nav-item href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>{{ label }}</b-nav-item>
+								{{/unless}}
+							{{/each}}
+						</b-navbar-nav>
+
+						<!-- Right aligned nav items -->
+						<b-navbar-nav class="ml-auto">
+							{{#each navLinks}}
+								{{#if isRight}}
+									{{#ifeq key 'shopping-cart'}}
+										{{!-- Handle the shopping cart differently as it has a badge--}}
+										{{> shopping-cart session=../session}}
+									{{else}}
+										<b-nav-item href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>{{ label }}</b-nav-item>
+									{{/ifeq}}
+								{{/if}}
+							{{/each}}
+									
+							<b-nav-item-dropdown right text="User">
+								{{#if user}}
+									{{!-- <b-dropdown-item href="/keystone/profile">Profile</b-dropdown-item> --}}
+									<b-dropdown-item href="/keystone/signout">Sign Out</b-dropdown-item>
+								{{else}}
+									<b-dropdown-item href="/keystone/signin">Sign In</b-dropdown-item>
+								{{/if}}
+							</b-nav-item-dropdown>
+
+							{{> locale-change right=true}}
+						</b-navbar-nav>
+					</b-collapse>
+				</b-navbar>
+			</div>
+			
+			<div id="body">
+				<!--
+					Flash messages allow you to display once-off status messages to users, e.g. form
+					validation errors, success messages, etc
+				-->
+				{{#if messages}}
+				<div id="app-flash-messages" v-cloak class="container my-3">
+					{{#if messages.info}}
+					<b-alert show dismissible>
+						{{{flashMessages messages.info}}}
+					</b-alert>
+					{{/if}}
+
+					{{#if messages.success}}
+					<b-alert show variant="success" dismissible>
+						{{{flashMessages messages.success}}}
+					</b-alert>
+					{{/if}}
+
+					{{#if messages.warning}}
+					<b-alert show variant="warning">
+						{{{flashMessages messages.warning}}}
+					</b-alert>
+					{{/if}}
+
+					{{#if messages.error}}
+					<b-alert show variant="danger">
+						{{{flashMessages messages.error}}}
+					</b-alert>
+					{{/if}}
+				</div>
+				{{/if}}
+
+				<!-- The content block should contain the body of your template's content-->
+				{{{body}}}
+			</div>
+
+			<div id="footer" class="mt-4 border-top pt-4 text-muted">
+				<div class="container">
+					<p>Designed By Rumen Neshev. Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<script type="text/javascript">__loading(40);</script>
+
+		<script src="/public/js/build.boot.js?v={{version}}"></script>
+		<script src="/public/js/build.site.js?v={{version}}"></script>
+
+		<script type="text/javascript">__loading(90);</script>
+
+        {{!-- This section allows templates to add custom JS here --}}
+		{{{_sections.body_js}}}
+
+		<script type="text/javascript">__loading(95);</script>
+
+		{{> google-analytics}}
+
+		<script type="text/javascript">__loading(false);</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+.borderRadius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.opacity(@opacity: 0.5) {
+	-webkit-opacity: @opacity;
+	-moz-opacity: @opacity;
+	opacity: @opacity;
+
+	@ieOpacity: @opacity * 100;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=@{ieOpacity})";
+	filter: ~"alpha(opacity=@{ieOpacity})";	
+}
+
+.comments-wrap {
+	.avatar {
+		.borderRadius(4px);
+		.opacity(1);
+	}
+
+	.comment-form textarea {
+		min-height: 80px;
+	}
+
+	.comment {
+		border: 1px solid #eee;
+		padding: 10px 20px;
+		background: #fff;
+		color: #6b6e80;
+		.borderRadius(4px);
+
+		.comment-meta {
+			border-bottom: 1px solid #eee;
+			font-size: 13px;
+			color: #aaaaaa;
+		}
+	}
+}

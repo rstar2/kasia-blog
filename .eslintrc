@@ -1,0 +1,7 @@
+{
+	"extends": "keystone",
+	"rules": {
+		"linebreak-style": "off",
+		"no-var": "warn"
+	}
+}

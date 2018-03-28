@@ -1,0 +1,5 @@
+<b-nav-item href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>
+	<i class="fas fa-shopping-cart"></i> {{ label }}
+	<span class="badge" id="app-shopping-cart-badge">{{ session.cart.totalQty }}</span>
+</b-nav-item>
+								

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Testing</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> {{!-- Load the Site styles - Bootstrap and custom ones --}}
+	<link href="/public/styles/build.boot.css?v={{version}}" rel="stylesheet">
+	
+	{{!-- This section allows templates to define custom CSS here --}}
+	{{{_sections.head_css}}}
+	
+	{{!-- This section allows templates to define custom JS here --}} 
+	{{_sections.head_js}}}
+
+	<style>
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app-header" v-cloak>
+		<b-navbar toggleable="md" type="dark" variant="info">
+			<b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+			<b-navbar-brand href="/">{{brand}} - Testing</b-navbar-brand>
+
+			<b-collapse is-nav id="nav_collapse">
+				<b-navbar-nav>
+				</b-navbar-nav>
+
+				<!-- Right aligned nav items -->
+				<b-navbar-nav class="ml-auto">
+				</b-navbar-nav>
+			</b-collapse>
+		</b-navbar>
+	</div>
+
+	<div id="body">
+		{{{body}}}
+	</div>
+
+	<script src="/public/js/build.boot.js?v={{version}}"></script>
+	
+	 {{!-- This section allows templates to add custom JS here --}}
+	 {{{_sections.body_js}}}
+</body>
+
+</html>

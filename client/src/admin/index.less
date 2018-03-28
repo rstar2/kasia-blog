@@ -1,0 +1,16 @@
+// Just to show that Less is compiled and bundled by Webpack
+
+@color: #2c3e50;
+
+#app-admin-fileupload {
+	color: @color;
+}
+
+// make the BlockUI component be absolute inside an relative component
+.loading-container {
+	&
+	.loading,
+	.loading-backdrop {
+		position: absolute !important;
+	}
+}

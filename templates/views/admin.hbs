@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{brand}} - Admin</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> {{!-- Load the Site styles - Bootstrap --}}
+	<link href="/public/styles/build.boot.css?v={{version}}" rel="stylesheet">
+	<link href="/public/styles/build.admin.css?v={{version}}" rel="stylesheet">
+</head>
+
+<body>
+	<div id="app" data-brand="{{brand}}" data-is-auth-init="{{isAuth user}}"></div>
+
+	<script src="/public/js/build.boot.js?v={{version}}"></script>
+	<script src="/public/js/build.admin.js?v={{version}}"></script>
+</body>
+
+</html>

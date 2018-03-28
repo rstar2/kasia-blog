@@ -1,0 +1,12 @@
+// A way to overwrite the BlockUI styles
+// Make the blocking only over the AppPayPalButton component - not over the whole page
+.loading-container {
+	& .loading-backdrop {
+	  background-color: white !important;
+	  position: absolute !important;
+	}
+	& .loading {
+	  background-color: unset !important;
+	  box-shadow: unset !important;
+	}
+  }

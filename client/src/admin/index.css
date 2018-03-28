@@ -1,0 +1,7 @@
+/* Just to show that CSS is compiled and bundled by Webpack */
+
+#app-admin {
+	font-family: "Avenir", Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}

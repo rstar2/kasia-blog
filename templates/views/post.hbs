@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			<article>
+				<p><a href="{{blogUrl}}">&larr; back to the blog</a></p>
+				<hr>
+				<header>
+					<h1>{{post.title}}</h1>
+					<h5>
+						{{{categoryList post.categories prefix="Posted in "}}}
+						{{#if post.author.name.first}}by {{post.author.name.first}}{{/if}}
+					</h5>
+				</header>
+				<div class="post">
+					{{#if post.image}}<img src="{{{cloudinaryUrl post.image width=750 height=450 crop='fit' }}}" class="img-responsive">{{/if}}
+					{{{post.content.extended.html}}}
+				</div>
+				<hr>
+				<div id="app-comments">
+					{{>comments}}
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+{{#section 'head_css'}}
+	<link href="/public/styles/build.post.css?v={{version}}" rel="stylesheet">
+{{/section}} 
+
+{{#section 'body_js'}}
+	<script src="/public/js/build.post.js?v={{version}}"></script>
+{{/section}}
