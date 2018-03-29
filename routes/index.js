@@ -67,8 +67,6 @@ exports = module.exports = function (app) {
 	app.all('/blog/post/:post', routes.views.post);
 	app.get('/page/:page?', routes.views.page);
 
-	// add new local files gallery implementation and let the old one (with the cloudinary images) be on 'xgallery'
-	app.get('/xgallery', routes.views.gallery_cloud);
 	app.get('/gallery/:gallery?', routes.views.gallery);
 
 	// Custom Admin related pages (for uploading files and etc...) - full SPA

@@ -84,7 +84,7 @@ keystone.set('nav', {
 	posts: ['posts', 'post-categories', 'post-comments'],
 	pages: ['pages', 'page-categories'],
 	users: ['users', 'enquiries'],
-	files: ['gallery-clouds', 'galleries', 'file-uploads'],
+	files: ['galleries', 'file-uploads'],
 	// enquiries: 'enquiries',
 });
 
