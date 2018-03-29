@@ -1,162 +1,242 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>{{brand}}</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<html lang="pl-PL">
 
-		{{!-- Load the Site styles - Bootstrap and custom ones --}}
-		<link href="/public/styles/build.boot.css?v={{version}}" rel="stylesheet">
-		<link href="/public/styles/build.site.css?v={{version}}" rel="stylesheet">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="shortcut icon" href="/public/images/favicon.png" />
+	<title>{{ brand }}</title>
+	
+	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Jura&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic&#038;ver=4.7.9' />
+
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+	<link rel='stylesheet' type='text/css' href='/public/css/backToTop.css' />
+
+	<!--  jQuery 2.x (3.x is not supported by some used plugins ) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!--  jQuery UI 1.12.1 - works with jQuery 1.7+ -->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	<script type='text/javascript' src='/public/js/lib/jquery.validate.js'></script>
+	<script type='text/javascript' src='/public/js/lib/hint.js'></script>
+
+	
+	<script type='text/javascript' src='/public/lib/fancybox/jquery.fancybox.pack.js'></script>
+	<link rel='stylesheet' type='text/css' href='/public/lib/fancybox/jquery.fancybox.css' />
+	
+	
+	<script type='text/javascript' src='/public/js/custom.js'></script>
+
+	{{! --
+	<link rel='stylesheet' id='core-css' href='http://kasia.weekendwarrior.eu/wp-content/plugins/simple-subscribe/assets/styleFrontEnd.css?ver=4.7.9'
+	 type='text/css' media='all' />
+
+	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.easing.js?ver=5.1'></script>
+	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.touchwipe.1.1.1.js?ver=5.1'></script>
+	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.ppflip.js?ver=5.1'></script>
+	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.tubular.js?ver=5.1'></script>
+	--}}
+	
+
+	<!--  Open Graph Tags -->
+	<meta property="og:image" content="/public/images/logo-facebook.png" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Kasia In Chains" />
+	<meta property="og:description" content="Travel And Photography" />
+	<meta property="og:url" content="http://kasia.weekendwarrior.eu/" />
+	<meta property="og:site_name" content="Kasia In Chains" />
+	<meta property="og:locale" content="pl_PL" />
+	<meta name="twitter:image" content="imageUrl" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:description" content="Visit the post for more." />
+
+	{{!-- This section allows templates to define custom CSS here --}}
+	{{{_sections.head_css}}}
+    {{!-- This section allows templates to define custom JS here --}}
+	{{{_sections.head_js}}}
+</head>
+
+
+<body class="home blog">
+
+	<div id="wrapper">
+		<div id="top_bar">
+			<div class="top_bar_wrapper">
+				<!-- Logo -->
+				<a id="custom_logo" class="logo_wrapper" href="/">
+					<img src="/public/images/logo.png" alt="" />
+				</a>
+
+				<!-- Main nav -->
+				<div id="menu_border_wrapper">
+					<div class="menu-menu-main-container">
+						<ul id="main_menu" class="nav">
+							<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-55">
+								<a>Podróże</a>
+								<ul class="sub-menu">
+									<li id="menu-item-480" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-480">
+										<a>Dania</a>
+										<ul class="sub-menu">
+											<li id="menu-item-479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-479">
+												<a href="/dania/bornholm-2009/">Bornholm 2009</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-361" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-361">
+										<a>Francja</a>
+										<ul class="sub-menu">
+											<li id="menu-item-362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-362">
+												<a href="/france/france-2013/">Tarn 2013</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-380" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-380">
+										<a>Włochy</a>
+										<ul class="sub-menu">
+											<li id="menu-item-377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-377">
+												<a href="/italy/venice-2013/">Wenecja 2013</a>
+											</li>
+											<li id="menu-item-1288" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1288">
+												<a href="/italy/werona-2014/">Werona 2014</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-408" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-408">
+										<a>Hiszpania</a>
+										<ul class="sub-menu">
+											<li id="menu-item-404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-404">
+												<a href="/spain/siurana-2012/">Siurana 2012</a>
+											</li>
+											<li id="menu-item-1238" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1238">
+												<a href="/spain/wspinaczkowo-2014/">Wspinaczkowo 2014</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-409" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-409">
+										<a>Grecja</a>
+										<ul class="sub-menu">
+											<li id="menu-item-389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-389">
+												<a href="/greece/kavala-2011/">Kavala 2011</a>
+											</li>
+											<li id="menu-item-925" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-925">
+												<a href="/greece/sparta-2013-2014/">Sparta 2013/2014</a>
+											</li>
+											<li id="menu-item-1859" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1859">
+												<a href="/greece/petropigi-i-kranohori-2015/">Petropigi i Kranohori 2015</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-342">
+										<a>Turcja</a>
+										<ul class="sub-menu">
+											<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147">
+												<a href="/turkey/turkey-2011/">Geyikbayiri 2011</a>
+											</li>
+											<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148">
+												<a href="/turkey/turkey-2013/">Geyikbayiri 2013</a>
+											</li>
+											<li id="menu-item-1645" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1645">
+												<a href="/turkey/geyikbayiri-2015/">Geyikbayiri 2015</a>
+											</li>
+										</ul>
+									</li>
+									<li id="menu-item-519" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-519">
+										<a>Maroko</a>
+										<ul class="sub-menu">
+											<li id="menu-item-506" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-506">
+												<a href="/maroko/todra-2008/">Todra 2008</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li id="menu-item-112" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-112">
+								<a>Żyjątka</a>
+								<ul class="sub-menu">
+									<li id="menu-item-113" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-113">
+										<a href="/aminals-big/">Duże</a>
+									</li>
+									<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
+										<a href="/animals-small/">Małe</a>
+									</li>
+									<li id="menu-item-427" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-427">
+										<a href="/kajetan/">Puszkin</a>
+									</li>
+									<li id="menu-item-426" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-426">
+										<a href="/kajetan-2/">Kajetan</a>
+									</li>
+									<li id="menu-item-428" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-428">
+										<a href="/fizia/">Fizia</a>
+									</li>
+								</ul>
+							</li>
+							<li id="menu-item-2002" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-2002">
+								<a href="/maja/">Maja</a>
+								<ul class="sub-menu">
+									<li id="menu-item-2005" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2005">
+										<a href="/maja/maj-z-maja/">w maju jak w gaju</a>
+									</li>
+								</ul>
+							</li>
+							<li id="menu-item-218" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-218">
+								<a href="/category/photography/impressions/">Impresje</a>
+							</li>
+							<li id="menu-item-217" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-217">
+								<a href="/category/photography/together/">My</a>
+							</li>
+							<li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22">
+								<a href="/about/">O mnie</a>
+							</li>
+							<li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
+								<a href="/contact/">Kontakt</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Social nav -->
+				<div class="top_right">
+					<div class="social_wrapper">
+						<ul>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 		
-		{{!-- http://usrz.github.io/bootstrap-languages/ --}}
-		<link href="/public/styles/lib/languages.min.css" rel="stylesheet">
+		{{{ body }}}
 
-		{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-		//- Safely remove this block if you are not targeting IE8 --}}
-		<!--[if lt IE 9]>
-			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
-			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+		<br class="clear" />
 
-        {{!-- This section allows templates to define custom CSS here --}}
-		{{{_sections.head_css}}}
-        {{!-- This section allows templates to define custom JS here --}}
-		{{{_sections.head_js}}}
-
-		<style>
-  			[v-cloak] {
-    			display: none;
-  			}
-		</style>
-
-		<script type="text/javascript">
-			function __loading(value) {
-				var loading = document.getElementById("loading")
-				if (loading) {
-					if (value === false) {
-						loading.parentElement.remove();
-					} else if (value === true) {
-						loading.style.width = "30%";
-					} else if (value instanceof Number || typeof value === "number") {
-						loading.style.width = value + "%";
-					}
-				}
-			}
-		</script>
-	</head>
-	<body>
-		<!-- Add a simple Bootstrap loading-progress - no need for any fancy plugins/libraries -->
-		<div class="progress" style="height: 3px; width: 100%; z-index: 100;">
-  			<div id="loading" class="progress-bar" role="progressbar"></div>
+		<div id="footer">
+			<a href="/protected/family">Cześć Rodzinko!</a>
+			<span style="text-transform: none; margin-right: 50px; position: absolute; right: 0px;"> © Ru </span>
 		</div>
-		<script type="text/javascript">__loading(true);</script>
+	</div>
 
-		<div>
+	<a href="#" id="backToTop" style="display: none;"><span></span></a>
 
-			<div id="app-header" v-cloak>
-				<b-navbar toggleable="md" type="dark" variant="info">
-					<b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-					<b-navbar-brand href="/">{{brand}}</b-navbar-brand>
+	<script type="text/javascript" language="javascript">
+		jQuery(function ($) {
+			$(window).contextmenu(function (e) {
+				e.preventDefault();
+				return false;
+			});
+			$("img").mousedown(function (e) {
+				e.preventDefault();
+				return false;
+			});
+		}); 
+	</script>
 
-					<b-collapse is-nav id="nav_collapse">
-						<b-navbar-nav>
-							{{#each navLinks}}
-								{{#unless isRight}}
-									<b-nav-item href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>{{ label }}</b-nav-item>
-								{{/unless}}
-							{{/each}}
-						</b-navbar-nav>
+	<script type='text/javascript' src='/public/js/backToTop.js'></script>
 
-						<!-- Right aligned nav items -->
-						<b-navbar-nav class="ml-auto">
-							{{#each navLinks}}
-								{{#if isRight}}
-									{{#ifeq key 'shopping-cart'}}
-										{{!-- Handle the shopping cart differently as it has a badge--}}
-										{{> shopping-cart session=../session}}
-									{{else}}
-										<b-nav-item href="{{ href }}" {{#ifeq ../section key}}class="active"{{else}}{{/ifeq}}>{{ label }}</b-nav-item>
-									{{/ifeq}}
-								{{/if}}
-							{{/each}}
-									
-							<b-nav-item-dropdown right text="User">
-								{{#if user}}
-									{{!-- <b-dropdown-item href="/keystone/profile">Profile</b-dropdown-item> --}}
-									<b-dropdown-item href="/keystone/signout">Sign Out</b-dropdown-item>
-								{{else}}
-									<b-dropdown-item href="/keystone/signin">Sign In</b-dropdown-item>
-								{{/if}}
-							</b-nav-item-dropdown>
+	{{!-- This section allows templates to add custom JS here --}}
+	{{{_sections.body_js}}}
 
-							{{> locale-change right=true}}
-						</b-navbar-nav>
-					</b-collapse>
-				</b-navbar>
-			</div>
-			
-			<div id="body">
-				<!--
-					Flash messages allow you to display once-off status messages to users, e.g. form
-					validation errors, success messages, etc
-				-->
-				{{#if messages}}
-				<div id="app-flash-messages" v-cloak class="container my-3">
-					{{#if messages.info}}
-					<b-alert show dismissible>
-						{{{flashMessages messages.info}}}
-					</b-alert>
-					{{/if}}
+	{{> google-analytics}}
+	
+</body>
 
-					{{#if messages.success}}
-					<b-alert show variant="success" dismissible>
-						{{{flashMessages messages.success}}}
-					</b-alert>
-					{{/if}}
-
-					{{#if messages.warning}}
-					<b-alert show variant="warning">
-						{{{flashMessages messages.warning}}}
-					</b-alert>
-					{{/if}}
-
-					{{#if messages.error}}
-					<b-alert show variant="danger">
-						{{{flashMessages messages.error}}}
-					</b-alert>
-					{{/if}}
-				</div>
-				{{/if}}
-
-				<!-- The content block should contain the body of your template's content-->
-				{{{body}}}
-			</div>
-
-			<div id="footer" class="mt-4 border-top pt-4 text-muted">
-				<div class="container">
-					<p>Designed By Rumen Neshev. Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-				</div>
-			</div>
-
-		</div>
-
-		<script type="text/javascript">__loading(40);</script>
-
-		<script src="/public/js/build.boot.js?v={{version}}"></script>
-		<script src="/public/js/build.site.js?v={{version}}"></script>
-
-		<script type="text/javascript">__loading(90);</script>
-
-        {{!-- This section allows templates to add custom JS here --}}
-		{{{_sections.body_js}}}
-
-		<script type="text/javascript">__loading(95);</script>
-
-		{{> google-analytics}}
-
-		<script type="text/javascript">__loading(false);</script>
-	</body>
 </html>

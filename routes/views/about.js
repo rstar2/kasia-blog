@@ -3,9 +3,11 @@ const keystone = require('keystone');
 exports = module.exports = function (req, res) {
 
 	const view = new keystone.View(req, res);
+	const locals = res.locals;
 
-	const page = req.params.page;
+	// Set locals
+	locals.section = 'about';
 
-	// Render the test view
-	view.render(`test/${page}`, { layout: 'test' });
+	view.render('about');
 };
+

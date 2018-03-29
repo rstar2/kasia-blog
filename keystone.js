@@ -35,9 +35,9 @@ require('express-handlebars-sections')(hbs);
 
 keystone.init({
 	// the name of the KeystoneJS application - don't know if it's used anywhere ?
-	'name': 'Kasia Blog',
+	'name': 'Kasia In Chains',
 	// Displayed in the top left hand corner of the Admin UI. I added it also in the site UI (title, nav-header) and in email-notifications
-	'brand': 'Kasia Blog',
+	'brand': 'Kasia In Chains',
 
 	// the root folder for the template views
 	'views': 'templates/views',
@@ -50,7 +50,7 @@ keystone.init({
 	'emails': 'templates/emails',
 	'sms': 'templates/sms',
 
-	'favicon': 'public/favicon.ico',
+	'favicon': 'public/images/favicon.png',
 
 	'auto update': true,
 
@@ -83,7 +83,6 @@ keystone.set('locals', {
 keystone.set('nav', {
 	posts: ['posts', 'post-categories', 'post-comments'],
 	pages: ['pages', 'page-categories'],
-	shop: ['products', 'product-categories', 'shipping-zones', 'orders'],
 	users: ['users', 'enquiries'],
 	files: ['gallery-clouds', 'galleries', 'file-uploads'],
 	// enquiries: 'enquiries',
@@ -99,13 +98,3 @@ keystone.set('routes', require('./routes'));
 
 // Start Keystone to connect to your database and initialize the web server
 keystone.start();
-
-if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
-	console.log('----------------------------------------'
-		+ '\nWARNING: MISSING MAILGUN CREDENTIALS'
-		+ '\n----------------------------------------'
-		+ '\nYou have opted into email sending but have not provided'
-		+ '\nmailgun credentials. Attempts to send will fail.'
-		+ '\n\nCreate a mailgun account and add the credentials to the .env file to'
-		+ '\nset up your mailgun integration');
-}

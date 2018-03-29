@@ -1,6 +1,90 @@
-<div class="container">
-	<h1>Contact Us</h1>
+<div class="page_caption">
+	<h1>Kontakt</h1>
 </div>
+
+<div id="content_wrapper">
+
+	<!-- Begin content -->
+	<div id="page_content_wrapper">
+
+		<div class="inner">
+
+			<div class="sidebar_content">
+
+				<!-- Begin main content -->
+
+				<form id="contact_form" method="post" action="?action=asd">
+					<p style="margin-top:0px">
+						<input id="your_name" name="your_name" type="text" style="width:97%" title="Name*" />
+					</p>
+					<p style="margin-top:0px">
+						<input id="email" name="email" type="text" style="width:97%" title="Email*" />
+					</p>
+					<p style="margin-top:0px">
+						<input id="phone" name="phone" type="text" style="width:97%" title="Phone" />
+					</p>
+					<p style="margin-top:0px">
+						<textarea id="message" name="message" rows="7" cols="10" style="width:97%" title="Message*"></textarea>
+					</p>
+
+
+					<p style="margin-top:0px">
+						<input type="submit" value="Send Message" />
+					</p>
+				</form>
+				<div id="reponse_msg"></div>
+				<br/>
+				<!-- End main content -->
+			</div>
+
+			<div class="sidebar_wrapper">
+				<div class="sidebar">
+
+					<div class="content">
+
+						<ul class="sidebar_widget">
+							<li class="widget widget_subscribe">
+								<h2 class="widgettitle">Subskrybcja</h2>
+								<div class="clear clearFix"></div>
+									<form action="" method="post">
+										<dl>
+											<dt>
+												<label for="subscribe-email" class="required">Your e-mail address</label>
+											</dt>
+											<dd>
+												<input type="text" name="subscribe-email" required value="" class="text">
+											</dd>
+											
+											<dt></dt>
+											<dd>
+												<input type="submit" class="subscribeButton button" value="Subscribe">
+											</dd>
+										</dl>
+									</form>
+
+									<p class="terms">By signing up, you agree to our
+										<a href="/legal/tos">Terms of Service</a> and
+										<a href='/legal/privacy/'>Privacy Policy</a>
+									</p>
+									<div class="clear clearFix"></div>
+								<div class="clear clearFix"></div>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+				<br class="clear" />
+
+			</div>
+		</div>
+
+		<br class="clear" />
+	</div>
+</div>
+
+
+
 <div class="container">
 	<div class="row">
 		<div class="col col-sm-8 col-md-6">
@@ -11,7 +95,7 @@
 				<input type="hidden" name="action" value="contact">
 				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
 					<label>Name</label>
-					<input type="text" name="name.full"  class="form-control" value="{{formData.[name.full]}}">
+					<input type="text" name="name.full" class="form-control" value="{{formData.[name.full]}}">
 				</div>
 				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
 					<label>Email</label>
@@ -42,3 +126,49 @@
 		</div>
 	</div>
 </div>
+
+{{#section 'head_css'}}
+<link rel='stylesheet' type='text/css' href='/public/css/contact.css' />
+{{/section}}
+
+{{#section 'body_js'}}
+<script>
+	$j(document).ready(function () {
+
+		$j.validator.setDefaults({
+			submitHandler: function () {
+				var actionUrl = $j('#contact_form').attr('action');
+
+				$j.ajax({
+					type: 'GET',
+					url: actionUrl,
+					data: $j('#contact_form').serialize(),
+					success: function (msg) {
+						$j('#contact_form').hide();
+						$j('#reponse_msg').html('<br/>' + msg);
+					}
+				});
+
+				return false;
+			}
+		});
+
+
+		$j('#contact_form').validate({
+			rules: {
+				your_name: "required",
+				email: {
+					required: true,
+					email: true
+				},
+				message: "required"
+			},
+			messages: {
+				your_name: "Please enter your name",
+				email: "Please enter a valid email address",
+				agree: "Please enter some message"
+			}
+		});
+	});
+</script>
+{{/section}}

@@ -61,26 +61,15 @@ const routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
+	app.all('/contact', routes.views.contact);
+	app.get('/about', routes.views.about);
 	app.get('/blog/:category?', routes.views.blog);
 	app.all('/blog/post/:post', routes.views.post);
-	app.all('/contact', routes.views.contact);
 	app.get('/page/:page?', routes.views.page);
 
 	// add new local files gallery implementation and let the old one (with the cloudinary images) be on 'xgallery'
 	app.get('/xgallery', routes.views.gallery_cloud);
 	app.get('/gallery/:gallery?', routes.views.gallery);
-
-	// Shop related pages
-	// app.get('/shop', routes.views.shop.index);
-	app.get('/shop(/category/:category)?', routes.views.shop.index);
-	app.get('/shop/product/:product', routes.views.shop.product);
-	app.get('/shop/cart', routes.views.shop.cart);
-
-	// this is the checkout integration
-	// provider is currently allowed to be only 'paypal' (with 'create'/'execute' allowed actions)
-	app.post('/shop/checkout/:provider/payment/:action', routes.views.shop.checkout);
-
-	app.get('/test/:page', routes.views.test);
 
 	// Custom Admin related pages (for uploading files and etc...) - full SPA
 	app.get('/admin(/**)?', routes.views.admin);

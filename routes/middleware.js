@@ -19,17 +19,6 @@ const debug = require('debug')('app:routes');
 	or replace it with your own templates / logic.
 */
 exports.initLocals = function (req, res, next) {
-	res.locals.navLinks = [
-		{ label: req.__('Home'), key: 'home', href: '/' },
-		{ label: req.__('Blog'), key: 'blog', href: '/blog' },
-		{ label: req.__('Gallery'), key: 'gallery', href: '/gallery' },
-		{ label: req.__('Contact'), key: 'contact', href: '/contact' },
-		{ label: req.__('Shop'), key: 'shop', href: '/shop' },
-		{
-			label: req.__('Cart'), key: 'shopping-cart', href: '/shop/cart',
-			icon: 'shopping-cart', isRight: true,
-		},
-	];
 	// expose the user (if any) and the session to the views
 	res.locals.user = req.user;
 	res.locals.session = req.session;

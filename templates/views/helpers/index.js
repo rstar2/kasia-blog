@@ -10,7 +10,6 @@ module.exports = function () {
 		require('./blog_admin'),
 		require('./cloudinary'),
 		require('./page'),
-		require('./shop'),
 	);
 
 	return helpers;
