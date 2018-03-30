@@ -1,34 +1,12 @@
 <div class="container">
 	<div class="row">
-		<div class="col col-sm-8 content">
-			<article class="post">
-				<div class="post_date">
-					<div class="month">Paź</div>
-					<div class="date">28</div>
-					<div class="year">2013</div>
-				</div>
-				<div class="post_header">
-					<h3>
-						<a href="{{postUrl post.slug}}" title="{{ post.title }}">
-							{{ post.title }}
-						</a>
-					</h3>
-					<div class="post_detail">
-						Posted {{#if post.author.name.full}}by {{post.author.name.full}}{{/if}} on 28 Paź 2013
-						<span class="commentsCount">
-							<img src="/public/images/comment.gif" alt="" class="middle">&nbsp;0</span>
-					</div>
-				</div>
-				<div class="post_detail" style="margin-left:5px">
-					{{{post.content.extended}}}
-				</div>
-			</article>
+		<div class="col col-sm-8 col-md-9 content">
+			{{>post}}
 			<div id="app-comments">
-				Comments
-				{{!-- {{>comments}} --}}
+				{{>comments}}
 			</div>
 		</div>
-		<div class="col col-sm-4 sidebar">
+		<div class="col col-sm-4 col-md-3 sidebar">
 			<div>Szukaj</div>
 			<div>Ostatnie Wpisy</div>
 			<div>Archiwa ?</div>

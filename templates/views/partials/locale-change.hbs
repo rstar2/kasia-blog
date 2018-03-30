@@ -1,0 +1,11 @@
+<b-nav-item-dropdown class="locales" {{ifx right 'right' ''}}>
+	<!-- Using button-content slot -->
+	<template slot="button-content">
+		<span class="lang-sm" lang="{{locale}}"></span>{{!--  {{toUpperCase locale}} --}}
+		<span class="caret"></span>
+	</template>
+
+	{{#each getLocales}}
+		<b-dropdown-item href="/locales/{{this}}"><span class="lang-sm" lang="{{this}}"></span> {{toUpperCase this}}</b-dropdown-item>
+	{{/each}}
+</b-nav-item-dropdown>

@@ -20,11 +20,12 @@ Page.add({
 	// image: { type: Types.CloudinaryImage },
 	content: { type: Types.Html, wysiwyg: true, height: 350 },
 	categories: { type: Types.Relationship, ref: 'PageCategory', many: true },
+	parent: { type: Types.Relationship, ref: 'Page' },
 });
 
 Page.schema.methods.isPublished = function () {
 	return this.state === 'published';
 };
 
-Page.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+Page.defaultColumns = 'title, slug, state|20%, author|20%, publishedDate|20%';
 Page.register();

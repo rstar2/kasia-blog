@@ -1,5 +1,4 @@
 const keystone = require('keystone');
-const async = require('async');
 
 exports = module.exports = function (req, res) {
 
@@ -8,41 +7,15 @@ exports = module.exports = function (req, res) {
 
 	// Init locals
 	locals.section = 'blog';
-
-	// Load all categories
-	view.on('init', function (next) {
-
-		keystone.list('PostCategory').model.find().sort('name')
-			.exec(function (err, categories) {
-
-				if (err || !categories.length) {
-					return next(err);
-				}
-
-				locals.categories = categories;
-
-				// Load the counts for each category
-				async.each(locals.categories, function (category, next) {
-
-					keystone.list('Post').model.count().where('categories').in([category.id])
-						.exec(function (err, count) {
-							category.count = count;
-							next(err);
-						});
-
-				}, function (err) {
-					next(err);
-				});
-			});
-	});
+	locals.title = 'blog';
 
 	// Load the current category filter
 	view.on('init', function (next) {
-
 		if (req.params.category) {
 			keystone.list('PostCategory').model.findOne({ slug: req.params.category })
 				.exec(function (err, category) {
 					locals.category = category;
+					locals.title = category.name;
 					next(err);
 				});
 		} else {
@@ -52,7 +25,6 @@ exports = module.exports = function (req, res) {
 
 	// Load the posts
 	view.on('init', function (next) {
-
 		const q = keystone.list('Post').paginate({
 			page: req.query.page || 1,
 			perPage: 10,

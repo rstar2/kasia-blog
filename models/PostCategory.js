@@ -1,5 +1,4 @@
 const keystone = require('keystone');
-const utils = keystone.utils;
 const Types = keystone.Field.Types;
 
 /**
@@ -7,21 +6,14 @@ const Types = keystone.Field.Types;
  * ==================
  */
 
-const PostCategory = new keystone.List('PostCategory');
+const PostCategory = new keystone.List('PostCategory', {
+	autokey: { path: 'slug', from: 'name', unique: true, fixed: true },
+});
 
 PostCategory.add({
 	name: { type: String, required: true },
-	slug: { type: String },
+	slug: { type: Types.Key }, // allow the slug to be explicitly specified
 	parent: { type: Types.Relationship, ref: 'PostCategory' },
-});
-
-PostCategory.schema.pre('save', function (next) {
-	// if 'slug' is still not entered use the obligatory 'name' field
-	// thus 'slug' is also obligatory
-	const slug = this.slug || this.name;
-	this.slug = utils.slug(slug);
-
-	next();
 });
 
 PostCategory.relationship({ ref: 'Post', path: 'posts', refPath: 'categories' });

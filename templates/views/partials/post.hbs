@@ -1,0 +1,29 @@
+<div class="mb-3 post">
+	<div class="media">
+		<div class="mr-3 post-date">
+			<div class="month">Paź</div>
+			<div class="date">28</div>
+			<div class="year">2013</div>
+		</div>
+		<div class="media-body post-header">
+			<h2 class="m-0">
+				<a href="{{postUrl post.slug}}" title="{{ post.title }}">
+					{{ post.title }}
+				</a>
+			</h2>
+			<div class="post-detail">
+				Posted {{#if post.author.name.full}}by {{post.author.name.full}}{{/if}} on 28 Paź 2013
+				<span class="float-right commentsCount">
+					<img src="/public/images/comment.gif" alt="" class="middle">&nbsp;0</span>
+			</div>
+		</div>
+	</div>
+	<div class="mt-3 post-body">
+		{{#if brief}}
+		<p>{{{post.content.brief}}}</p>
+		{{#if post.content.extended}}
+		<p class="read-more">
+			<a href="{{postUrl post.slug}}">Read more...</a>
+		</p>{{/if}} {{else}} {{{post.content.extended}}} {{/if}}
+	</div>
+</div>

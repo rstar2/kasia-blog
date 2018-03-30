@@ -1,48 +1,33 @@
 <div class="container">
-	<h1>Blog</h1>
+	<h1>{{title}}</h1>
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col col-sm-8 col-md-9">
+		<div class="col col-sm-8 col-md-9 content">
 			<h4 class="text-weight-normal">Showing {{ posts.results.length}} posts.</h4>
-			<div class="blog" {{#if (isAdminEditor user)}}id="app-blog-editor"{{/if}}>
+			<div class="blog">
 				{{#each posts.results}}
-				<div data-ks-editable="{{#if (isAdminEditor ../user)}}{{adminEditablePostUrl ../user id}}{{/if}}" class="post" is="app-post-editor">
-					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
-					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</p>
-					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p>{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
-				</div>
+					{{>post post=this brief=true}}
 				{{/each}}
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div class="list-group">
-				<a href="{{blogUrl}}" class="{{ifx category '' 'active'}} list-group-item">All Categories</a>
-				{{# each categories }}
-				<a href="{{categoryUrl slug}}" class="{{ifx (isSame ../category id) 'active' ''}} list-group-item">{{name}}
-					<span class="badge float-right">{{count}}</span>
-				</a>
-				{{/each}}
+		<div class="col-sm-4 col-md-3 sidebar">
+			<div class="widget">
+				<h2>Categories</h2>
+				<div class="list-group">
+					<a href="{{blogUrl}}" class="{{ifx category '' 'active'}} list-group-item">All Categories</a>
+					{{# each categories }}
+					<a href="{{categoryUrl slug}}" class="{{ifx (isSame ../category id) 'active' ''}} list-group-item">{{name}}
+						<span class="badge float-right">{{count}}</span>
+					</a>
+					{{/each}}
+				</div>
 			</div>
 		</div>
 	</div>
 	{{>pagination}}
 </div>
 
-{{#if (isAdminEditor user)}}
-
-{{!-- These files provide the default styling for the KeystoneJS Content Editor
-	- only renders when user is logged in and admin --}}
 {{#section 'head_css'}}
-	<link href="/public/styles/build.blog-editor.css?v={{version}}" rel="stylesheet">
-{{/section}} 
-{{#section 'body_js'}}
-	<script src="/public/js/build.blog-editor.js?v={{version}}"></script>
+	<link href="/public/css/blog.css?v={{version}}" rel="stylesheet">
 {{/section}}
-
-{{/if}}

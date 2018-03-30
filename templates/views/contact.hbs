@@ -3,7 +3,7 @@
 	<h1 class="page-caption">Kontakt</h1>
 
 	<div class="row">
-		<div class="col col-sm-8 content">
+		<div class="col col-sm-8 col-md-9 content">
 			<!-- Main content -->
 			{{#if enquirySubmitted}}
 			<h3>Thanks for getting in touch.</h3>
@@ -38,31 +38,30 @@
 			</form>
 			{{/if}}
 		</div>
-		<div class="col col-sm-4 sidebar">
+		<div class="col col-sm-4 col-md-3 sidebar">
 			<!-- Sidebar content-->
-			<ul class="sidebar_widget">
-				<li class="widget widget_subscribe">
-					<h2 class="widgettitle">Subskrybcja</h2>
-					{{#if subscriptionSubmitted}}
-					<h3>Thanks for the subscribing.</h3>
-					{{else}}
-					<form method="post" id="subscribe_form">
-						<input type="hidden" name="action" value="subscribe">
-						
-						<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
-							<input type="text" name="email" title="Email*" class="form-control" value="{{formData.email}}" required/>
-						</div>
-						<div class="form-actions">
-							<input type="submit" class="btn btn-primary" value="Subscribe" />
-						</div>
-					</form>
-					<p class="terms d-none">By signing up, you agree to our
-						<a href="/legal/tos">Terms of Service</a> and
-						<a href='/legal/privacy/'>Privacy Policy</a>
-					</p>
-					{{/if}}
-				</li>
-			</ul>
+			<div class="widget">
+				<h2>Subskrybcja</h2>
+
+				{{#if subscriptionSubmitted}}
+				<h3>Thanks for the subscribing.</h3>
+				{{else}}
+				<form method="post" id="subscribe_form">
+					<input type="hidden" name="action" value="subscribe">
+					
+					<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+						<input type="text" name="email" title="Email*" class="form-control" value="{{formData.email}}" required/>
+					</div>
+					<div class="form-actions">
+						<input type="submit" class="btn btn-primary" value="Subscribe" />
+					</div>
+				</form>
+				<p class="terms d-none">By signing up, you agree to our
+					<a href="/legal/tos">Terms of Service</a> and
+					<a href='/legal/privacy/'>Privacy Policy</a>
+				</p>
+				{{/if}}
+			</div>
 		</div>
 	</div>
 </div>

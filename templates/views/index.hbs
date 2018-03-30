@@ -8,7 +8,13 @@
 <!--/images/arrow_forward.png" alt=""/></a>-->
 <!--</div>-->
 <!--<div id="controls-wrapper" class="load-item"></div>-->
-<link rel="stylesheet" href="/public/lib/supersized/supersized.css" type="text/css" />
+
+{{#section 'head_css'}}
+	<link rel="stylesheet" href="/public/lib/supersized/supersized.css" type="text/css" />
+{{/section}}
+
+{{#section 'body_js'}}
+
 <script type="text/javascript" src="/public/lib/supersized/supersized.3.1.3.js"></script>
 <script type="text/javascript" src="/public/lib/supersized/supersized.shutter.js"></script>
 <script type="text/javascript">  
@@ -50,3 +56,5 @@
 		});
 	});
 </script>
+
+{{/section}}

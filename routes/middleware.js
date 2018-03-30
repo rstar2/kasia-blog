@@ -90,7 +90,7 @@ exports.validateCorsAPI = function (keystone) {
 
 
 		const origin = keystone.get('cors allow origin');
-		let isAllowed = (origin === true || origin === req.host);
+		let isAllowed = (origin === true || origin === req.hostname);
 
 		// TODO: could validate the method and headers also if needed
 		// if (keystone.get('cors allow methods') !== false) {
