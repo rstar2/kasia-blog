@@ -1,0 +1,43 @@
+.widget_subscribe dl,
+.widget_subscribe dd,
+.widget_subscribe dt {
+	margin: 0;
+}
+
+.widget_subscribe dd,
+.widget_subscribe dt {
+	margin-bottom: 15px;
+}
+
+.widget_subscribe .success,
+.widget_subscribe .error {
+	clear: both;
+	font-weight: bold;
+	display: inline-block;
+	width: auto;
+	margin-top: 15px;
+	padding: 3px 7px;
+	border-radius: 4px;
+	background: #000;
+	color: #ffce00;
+	line-height: 1.3em;
+	list-style: none;
+}
+
+.widget_subscribe .success li,
+.widget_subscribe .error li {
+	padding-left: 0;
+	margin-left: 0;
+}
+
+.widget_subscribe .success {
+	color: #fff;
+	margin-top: 0;
+	margin-bottom: 15px;
+}
+
+.widget_subscribe .terms {
+	max-width: 180px;
+	font-size: 10px;
+	display: none;
+}

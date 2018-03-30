@@ -1,0 +1,25 @@
+#backToTop {
+	display: none;
+	overflow: hidden;
+	width: auto;
+	z-index: 1000;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	margin: 10px;
+}
+
+#backToTop,
+#backToTop:active,
+#backToTop:focus,
+#backToTop:hover {
+	outline: none;
+}
+
+#backToTop span {
+	display: block;
+	overflow: hidden;
+	width: 30px;
+	height: 30px;
+	background: url("../images/backToTop.png") no-repeat center center;
+}

@@ -1,0 +1,109 @@
+@import "./screen.css";
+@import "./grid.css";
+
+div.sharedaddy {
+	margin-top: 20px !important;
+}
+
+div.sharedaddy div.sd-block {
+	border: none !important;
+}
+
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+
+.top_bar_wrapper {
+	width: 96% !important;
+}
+
+body,
+#page_content_wrapper .sidebar .content .posts.blog {
+	font-size: 13px;
+}
+
+.nav li a {
+	font-size: 16px;
+}
+
+.page_caption h1 {
+	font-size: 50px;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+h2 {
+	font-size: 32px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 22px;
+}
+
+h5 {
+	font-size: 18px;
+}
+
+h6 {
+	font-size: 16px;
+}
+
+#imageFlow .scrollbar {
+	display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav,
+.subnav,
+#footer {
+	font-family: 'Jura';
+}
+
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+	.page_caption h1 {
+		font-size: 90px;
+	}
+
+	#bg {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.page_caption h1 {
+		font-size: 65px;
+	}
+
+	#bg {
+		margin-top: 0;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.page_caption h1 {
+		font-size: 50px;
+	}
+
+	#bg {
+		margin-top: 0;
+	}
+}
