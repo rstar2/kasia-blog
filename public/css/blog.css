@@ -1,0 +1,67 @@
+.post_date {
+	background: none repeat scroll 0 0 #000000;
+	color: #ffffff;
+	float: left;
+	font-weight: bold;
+	margin-right: 20px;
+	text-transform: uppercase;
+	height: 60px;
+	width: 60px;
+}
+
+.post_date .month {
+	font-size: 12px;
+	margin-top: 2px;
+	text-align: center;
+	width: 100%;
+}
+
+.post_date .date {
+	font-size: 25px;
+	margin-top: -8px;
+	text-align: center;
+	width: 100%;
+}
+
+.post_date .year {
+	font-size: 12px;
+	margin-top: -10px;
+	text-align: center;
+	width: 100%;
+}
+
+.post_header {
+	float: left;
+	margin-bottom: 5px;
+}
+
+.post_header h2 {
+	color: #999;
+	font-size: 24px;
+}
+
+.post_detail {
+	float: left;
+	margin: -5px 0 0 0;
+}
+
+.post_detail .commentsCount {
+	/*margin: 0 0 0 20px;*/
+	float: right;
+}
+
+.post_header + .post_detail {
+	margin: 30px 0 0 0;
+}
+
+.post_social {
+	margin-top: 20px;
+}
+
+.post_header .post_detail,
+.recent_post_detail {
+	font-size: 11px;
+	width: 100%;
+	/*padding: 5px 10px 15px 8px;*/
+	margin: 0;
+}

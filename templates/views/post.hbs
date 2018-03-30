@@ -1,33 +1,42 @@
 <div class="container">
 	<div class="row">
-		<div class="col col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-			<article>
-				<p><a href="{{blogUrl}}">&larr; back to the blog</a></p>
-				<hr>
-				<header>
-					<h1>{{post.title}}</h1>
-					<h5>
-						{{{categoryList post.categories prefix="Posted in "}}}
-						{{#if post.author.name.first}}by {{post.author.name.first}}{{/if}}
-					</h5>
-				</header>
-				<div class="post">
-					{{#if post.image}}<img src="{{{cloudinaryUrl post.image width=750 height=450 crop='fit' }}}" class="img-responsive">{{/if}}
-					{{{post.content.extended.html}}}
+		<div class="col col-sm-8 content">
+			<article class="post">
+				<div class="post_date">
+					<div class="month">Paź</div>
+					<div class="date">28</div>
+					<div class="year">2013</div>
 				</div>
-				<hr>
-				<div id="app-comments">
-					{{>comments}}
+				<div class="post_header">
+					<h3>
+						<a href="{{postUrl post.slug}}" title="{{ post.title }}">
+							{{ post.title }}
+						</a>
+					</h3>
+					<div class="post_detail">
+						Posted {{#if post.author.name.full}}by {{post.author.name.full}}{{/if}} on 28 Paź 2013
+						<span class="commentsCount">
+							<img src="/public/images/comment.gif" alt="" class="middle">&nbsp;0</span>
+					</div>
+				</div>
+				<div class="post_detail" style="margin-left:5px">
+					{{{post.content.extended}}}
 				</div>
 			</article>
+			<div id="app-comments">
+				Comments
+				{{!-- {{>comments}} --}}
+			</div>
+		</div>
+		<div class="col col-sm-4 sidebar">
+			<div>Szukaj</div>
+			<div>Ostatnie Wpisy</div>
+			<div>Archiwa ?</div>
 		</div>
 	</div>
 </div>
 
 {{#section 'head_css'}}
-	<link href="/public/styles/build.post.css?v={{version}}" rel="stylesheet">
-{{/section}} 
-
-{{#section 'body_js'}}
-	<script src="/public/js/build.post.js?v={{version}}"></script>
+	<link href="/public/css/blog.css?v={{version}}" rel="stylesheet">
 {{/section}}
+{{#section 'body_js'}} {{/section}}

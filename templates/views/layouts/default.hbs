@@ -7,40 +7,6 @@
 	<link rel="shortcut icon" href="/public/images/favicon.png" />
 	<title>{{ brand }}</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	
-	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Jura&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic&#038;ver=4.7.9' />
-
-	<link rel="stylesheet" type="text/css" href="/public/css/style.css" />
-	<link rel='stylesheet' type='text/css' href='/public/css/backToTop.css' />
-
-	<!--  jQuery 2.x (3.x is not supported by some used plugins ) -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<!--  jQuery UI 1.12.1 - works with jQuery 1.7+ -->
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-	<script type='text/javascript' src='/public/js/lib/jquery.validate.js'></script>
-	<script type='text/javascript' src='/public/js/lib/hint.js'></script>
-
-	
-	<script type='text/javascript' src='/public/lib/fancybox/jquery.fancybox.pack.js'></script>
-	<link rel='stylesheet' type='text/css' href='/public/lib/fancybox/jquery.fancybox.css' />
-	
-	
-	<script type='text/javascript' src='/public/js/custom.js'></script>
-
-	{{! --
-	<link rel='stylesheet' id='core-css' href='http://kasia.weekendwarrior.eu/wp-content/plugins/simple-subscribe/assets/styleFrontEnd.css?ver=4.7.9'
-	 type='text/css' media='all' />
-
-	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.easing.js?ver=5.1'></script>
-	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.touchwipe.1.1.1.js?ver=5.1'></script>
-	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.ppflip.js?ver=5.1'></script>
-	<script type='text/javascript' src='http://kasia.weekendwarrior.eu/wp-content/themes/core-kasia/js/jquery.tubular.js?ver=5.1'></script>
-	--}}
-	
-
 	<!--  Open Graph Tags -->
 	<meta property="og:image" content="/public/images/logo-facebook.png" />
 	<meta property="og:type" content="website" />
@@ -53,12 +19,27 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:description" content="Visit the post for more." />
 
+
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Jura&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic&#038;ver=4.7.9' />
+
+	<!--  jQuery UI 1.12.1 - works with jQuery 1.7+ -->
+	<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+	<link rel="stylesheet" type="text/css" href="/public/css/style.css?v={{version}}" />
+	<link rel='stylesheet' type='text/css' href='/public/css/backToTop.css?v={{version}}' />
+
+	{{!-- TODO: check should it be used any more
+	<script type='text/javascript' src='/public/lib/fancybox/jquery.fancybox.pack.js'></script>
+	<link rel='stylesheet' type='text/css' href='/public/lib/fancybox/jquery.fancybox.css' />
+	--}}
+
 	{{!-- This section allows templates to define custom CSS here --}}
 	{{{_sections.head_css}}}
     {{!-- This section allows templates to define custom JS here --}}
 	{{{_sections.head_js}}}
 </head>
-
 
 <body class="{{body_class}}">
 
@@ -221,7 +202,16 @@
 		}); 
 	</script>
 
-	<script type='text/javascript' src='/public/js/backToTop.js'></script>
+	<!--  jQuery 2.x (3.x is not supported by some used plugins ) -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<!--  jQuery UI 1.12.1 - works with jQuery 1.7+ -->
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+	<script type='text/javascript' src='/public/js/lib/jquery.validate.js'></script>
+	<script type='text/javascript' src='/public/js/lib/hint.js'></script>
+	
+	<script type='text/javascript' src='/public/js/custom.js?v={{version}}'></script>
+	<script type='text/javascript' src='/public/js/backToTop.js?v={{version}}'></script>
 
 	{{!-- This section allows templates to add custom JS here --}}
 	{{{_sections.body_js}}}
