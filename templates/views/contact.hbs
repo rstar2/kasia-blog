@@ -1,109 +1,27 @@
-<div class="page_caption">
-	<h1>Kontakt</h1>
-</div>
-
-<div id="content_wrapper">
-
-	<!-- Begin content -->
-	<div id="page_content_wrapper">
-
-		<div class="inner">
-
-			<div class="sidebar_content">
-
-				<!-- Begin main content -->
-
-				<form id="contact_form" method="post" action="?action=asd">
-					<p style="margin-top:0px">
-						<input id="your_name" name="your_name" type="text" style="width:97%" title="Name*" />
-					</p>
-					<p style="margin-top:0px">
-						<input id="email" name="email" type="text" style="width:97%" title="Email*" />
-					</p>
-					<p style="margin-top:0px">
-						<input id="phone" name="phone" type="text" style="width:97%" title="Phone" />
-					</p>
-					<p style="margin-top:0px">
-						<textarea id="message" name="message" rows="7" cols="10" style="width:97%" title="Message*"></textarea>
-					</p>
-
-
-					<p style="margin-top:0px">
-						<input type="submit" value="Send Message" />
-					</p>
-				</form>
-				<div id="reponse_msg"></div>
-				<br/>
-				<!-- End main content -->
-			</div>
-
-			<div class="sidebar_wrapper">
-				<div class="sidebar">
-
-					<div class="content">
-
-						<ul class="sidebar_widget">
-							<li class="widget widget_subscribe">
-								<h2 class="widgettitle">Subskrybcja</h2>
-								<div class="clear clearFix"></div>
-									<form action="" method="post">
-										<dl>
-											<dt>
-												<label for="subscribe-email" class="required">Your e-mail address</label>
-											</dt>
-											<dd>
-												<input type="text" name="subscribe-email" required value="" class="text">
-											</dd>
-											
-											<dt></dt>
-											<dd>
-												<input type="submit" class="subscribeButton button" value="Subscribe">
-											</dd>
-										</dl>
-									</form>
-
-									<p class="terms">By signing up, you agree to our
-										<a href="/legal/tos">Terms of Service</a> and
-										<a href='/legal/privacy/'>Privacy Policy</a>
-									</p>
-									<div class="clear clearFix"></div>
-								<div class="clear clearFix"></div>
-							</li>
-						</ul>
-
-					</div>
-
-				</div>
-				<br class="clear" />
-
-			</div>
-		</div>
-
-		<br class="clear" />
-	</div>
-</div>
-
-
-
 <div class="container">
+	
+	<h1 class="page-caption">Kontakt</h1>
+
 	<div class="row">
-		<div class="col col-sm-8 col-md-6">
+		<div class="col col-sm-8">
+			<!-- Main content -->
 			{{#if enquirySubmitted}}
 			<h3>Thanks for getting in touch.</h3>
 			{{else}}
-			<form method="post">
-				<input type="hidden" name="action" value="contact">
+			<form method="post" id="contact_form">
+				<input type="hidden" name="action" value="contact" />
+
 				<div class="form-group {{#if validationErrors.name}}has-error{{/if}}">
-					<label>Name</label>
-					<input type="text" name="name.full" class="form-control" value="{{formData.[name.full]}}">
+					<input type="text" name="name.full" title="Name*" class="form-control" value="{{formData.[name.full]}}" />
 				</div>
 				<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
-					<label>Email</label>
-					<input type="email" name="email" class="form-control" value="{{formData.email}}">
+					<input type="text" name="email" title="Email*" class="form-control" value="{{formData.email}}" />
 				</div>
 				<div class="form-group">
-					<label>Phone</label>
-					<input type="text" name="phone" placeholder="(optional)" class="form-control" value="{{formData.phone}}">
+					<input type="text" name="phone" title="Phone" class="form-control" value="{{formData.phone}}" />
+				</div>
+				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
+					<textarea name="message" title="Leave us a message...*" rows="4" class="form-control">{{formData.message}}</textarea>
 				</div>
 				<div class="form-group {{#if validationErrors.enquiryType}}has-error{{/if}}">
 					<label>What are you contacting us about?</label>
@@ -114,60 +32,70 @@
 						{{/each}}
 					</select>
 				</div>
-				<div class="form-group {{#if validationErrors.message}}has-error{{/if}} ">
-					<label>Message</label>
-					<textarea name="message" placeholder="Leave us a message..." rows="4" class="form-control">{{formData.message}}</textarea>
-				</div>
 				<div class="form-actions">
-					<button type="submit" class="btn btn-primary">Send</button>
+					<input type="submit" class="btn btn-primary" value="Send Message" />
 				</div>
 			</form>
 			{{/if}}
 		</div>
+		<div class="col col-sm-4">
+			<!-- Sidebar content-->
+			<ul class="sidebar_widget">
+				<li class="widget widget_subscribe">
+					<h2 class="widgettitle">Subskrybcja</h2>
+					{{#if subscriptionSubmitted}}
+					<h3>Thanks for the subscribing.</h3>
+					{{else}}
+					<form method="post" id="subscribe_form">
+						<input type="hidden" name="action" value="subscribe">
+						
+						<div class="form-group {{#if validationErrors.email}}has-error{{/if}}">
+							<input type="text" name="email" title="Email*" class="form-control" value="{{formData.email}}" required/>
+						</div>
+						<div class="form-actions">
+							<input type="submit" class="btn btn-primary" value="Subscribe" />
+						</div>
+					</form>
+					<p class="terms d-none">By signing up, you agree to our
+						<a href="/legal/tos">Terms of Service</a> and
+						<a href='/legal/privacy/'>Privacy Policy</a>
+					</p>
+					{{/if}}
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
-{{#section 'head_css'}}
-<link rel='stylesheet' type='text/css' href='/public/css/contact.css' />
-{{/section}}
-
 {{#section 'body_js'}}
 <script>
-	$j(document).ready(function () {
-
-		$j.validator.setDefaults({
-			submitHandler: function () {
-				var actionUrl = $j('#contact_form').attr('action');
-
-				$j.ajax({
-					type: 'GET',
-					url: actionUrl,
-					data: $j('#contact_form').serialize(),
-					success: function (msg) {
-						$j('#contact_form').hide();
-						$j('#reponse_msg').html('<br/>' + msg);
-					}
-				});
-
-				return false;
-			}
-		});
-
-
-		$j('#contact_form').validate({
+	jQuery(function ($) {
+		$('#contact_form').validate({
 			rules: {
-				your_name: "required",
+				'name.full': "required",
 				email: {
 					required: true,
 					email: true
 				},
-				message: "required"
+				message: "required",
 			},
 			messages: {
-				your_name: "Please enter your name",
+				'name.full': "Please enter your name",
 				email: "Please enter a valid email address",
-				agree: "Please enter some message"
-			}
+				message: "Please enter some message",
+			},
+		});
+
+		$('#subscribe_form').validate({
+			rules: {
+				email: {
+					required: true,
+					email: true,
+				},
+			},
+			messages: {
+				email: "Please enter a valid email address",
+			},
 		});
 	});
 </script>

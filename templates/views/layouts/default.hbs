@@ -6,6 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 	<link rel="shortcut icon" href="/public/images/favicon.png" />
 	<title>{{ brand }}</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Jura&#038;subset=latin%2Ccyrillic-ext%2Cgreek-ext%2Ccyrillic&#038;ver=4.7.9' />
 
@@ -58,20 +60,18 @@
 </head>
 
 
-<body class="home blog">
+<body class="{{body_class}}">
 
-	<div id="wrapper">
-		<div id="top_bar">
-			<div class="top_bar_wrapper">
-				<!-- Logo -->
-				<a id="custom_logo" class="logo_wrapper" href="/">
-					<img src="/public/images/logo.png" alt="" />
-				</a>
-
-				<!-- Main nav -->
-				<div id="menu_border_wrapper">
-					<div class="menu-menu-main-container">
-						<ul id="main_menu" class="nav">
+	<div id="header" class="container-fluid clearfix mb-3 p-0">
+		<div>
+			<!-- Logo -->
+			<a class="logo_wrapper" href="/">
+				<img src="/public/images/logo.png" alt="" />
+			</a>
+			<!-- Main nav -->
+			<div id="menu_border_wrapper">
+				<div class="menu-menu-main-container">
+					<ul id="main_menu" class="nav">
 							<li id="menu-item-55" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-55">
 								<a>Podróże</a>
 								<ul class="sub-menu">
@@ -191,28 +191,19 @@
 							<li id="menu-item-11" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11">
 								<a href="/contact/">Kontakt</a>
 							</li>
-						</ul>
-					</div>
-				</div>
-
-				<!-- Social nav -->
-				<div class="top_right">
-					<div class="social_wrapper">
-						<ul>
-						</ul>
-					</div>
+					</ul>
 				</div>
 			</div>
 		</div>
-		
-		{{{ body }}}
+	</div>
+	
+	<div id="body">
+	{{{ body }}}
+	</div>
 
-		<br class="clear" />
-
-		<div id="footer">
-			<a href="/protected/family">Cześć Rodzinko!</a>
-			<span style="text-transform: none; margin-right: 50px; position: absolute; right: 0px;"> © Ru </span>
-		</div>
+	<div id="footer" class="container-fluid mx-auto text-uppercase text-center py-2">
+		<a href="/protected/family">Cześć Rodzinko!</a>
+		<span class="copyright"> © Ru </span>
 	</div>
 
 	<a href="#" id="backToTop" style="display: none;"><span></span></a>

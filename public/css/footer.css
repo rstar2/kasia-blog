@@ -1,0 +1,20 @@
+#footer {
+	letter-spacing: 1px;
+	font-size: 16px;
+	background: #fff;
+	z-index: 998;
+	opacity: 0.6;
+}
+
+body.home #footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+
+#footer .copyright {
+	text-transform: none;
+	margin-right: 50px;
+	position: absolute;
+	right: 0px;
+}
