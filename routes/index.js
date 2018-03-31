@@ -70,10 +70,10 @@ exports = module.exports = function (app) {
 	app.get('/gallery/:gallery?', routes.views.gallery);
 
 	// Custom Admin related pages (for uploading files and etc...) - full SPA
-	app.get('/admin(/**)?', routes.views.admin);
+	app.get('/admin(/*)?', routes.views.admin);
 
 	// Attach to all API routes res.apiResponse() ...  methods
-	app.all('/api/**', keystone.middleware.api);
+	app.all('/api/*', keystone.middleware.api);
 
 	// authentication API (signin/signout)
 	app.use('/api/auth', routes.api.auth);
@@ -90,7 +90,7 @@ exports = module.exports = function (app) {
 	];
 
 	// All API routes are protected and/or should allow CORS
-	app.all('/api/**', ...apiProtected);
+	app.all('/api/*', ...apiProtected);
 
 	app.use('/api/fileupload', routes.api.fileupload);
 	app.use('/api/gallery', routes.api.gallery);
